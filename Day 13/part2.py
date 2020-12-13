@@ -1,9 +1,6 @@
-import numpy as np
-
 lines = (x.strip() for x in open("input.txt"))
 
-next(lines)
-bus_ids = [id for id in next(lines).split(',')]
+bus_ids = [id for id in lines[1].split(',')]
 bus_ids = [(int(bus),i) for (bus,i) in list(zip(bus_ids,range(len(bus_ids)))) if bus != 'x']
 
 headstart = 100000000000000
