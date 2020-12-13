@@ -1,8 +1,6 @@
 from math import gcd
 lines = [x.strip() for x in open("D:/Users/Azure Meso/Documents/Programmierung/Advent of Code 2020/Day 13/input.txt")]
-
-bus_ids = [id for id in lines[1].split(',')]
-bus_ids = [(int(bus),-i) for (bus,i) in list(zip(bus_ids,range(len(bus_ids)))) if bus != 'x']
+bus_ids = [(int(bus),-i) for (i,bus) in enumerate(lines[1].split(',')) if bus != 'x']
 
 def kgv(x,y):
     return x * y // gcd(x, y)
