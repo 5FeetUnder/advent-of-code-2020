@@ -6,10 +6,9 @@ def kgv(x,y):
 
 def combined_sequence(a, b, c, d):
     while b != d:
-        if b < d:
-            b += ((d-b-1) // a + 1) * a
-        else:
-            d += ((b-d-1) // c + 1) * c
+        next_b_or_d = lambda u, v, w : u + ((v - u - 1) // w + 1) * w
+        b = next_b_or_d(b, d, a) if b < d else b
+        d = next_b_or_d(d, b, c) if d < b else d
     return (kgv(a, c), b)
 
 solution = (1, 0)
