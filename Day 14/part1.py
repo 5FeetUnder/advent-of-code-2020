@@ -27,6 +27,4 @@ for command in commands:
         mem.set_mask(command[1])
     else:
         mem.write_mem(int(command[0][command[0].find('[')+1:command[0].find(']')]),int(command[1]))
-        # print(int(command[0][command[0].find('[')+1:command[0].find(']')]),int(command[1]))
 print(mem.get_sum())
-# mem.get_sum()
