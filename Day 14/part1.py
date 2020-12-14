@@ -9,9 +9,10 @@ class MemArray:
         self.mask[1] = [len(mask)-i-1 for i, x in enumerate(mask) if x == '1']
         self.mask[0] = [len(mask)-i-1 for i, x in enumerate(mask) if x == '0']
     def write_mem(self, address:int, value:int):
-        for v in range(2):
-            for p in self.mask[v]:
-                value = value | v << p
+        for p in self.mask[1]:
+            value = value | 1 << p
+        for p in self.mask[0]:
+            value = value & ~(1 << p)
         print(len(bin(value))-2)
         self.cells[address] = value
     def get_sum(self):
@@ -27,5 +28,5 @@ for command in commands:
     else:
         mem.write_mem(int(command[0][command[0].find('[')+1:command[0].find(']')]),int(command[1]))
         # print(int(command[0][command[0].find('[')+1:command[0].find(']')]),int(command[1]))
-# print(mem.get_sum())
+print(mem.get_sum())
 # mem.get_sum()
