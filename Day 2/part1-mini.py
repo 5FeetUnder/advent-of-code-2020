@@ -1,0 +1,1 @@
+import re;print(sum((1 for x in(re.compile(r"(\d+)-(\d+) (\w): (\w+)").match(x).groups()for x in(x for x in open('input.txt')))if x[3].count(x[2])<=int(x[1])and x[3].count(x[2])>=int(x[0]))))
