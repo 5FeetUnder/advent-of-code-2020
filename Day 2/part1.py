@@ -1,6 +1,5 @@
 import re
 
-# lines = ['1-3 a: abcde', '1-3 b: cdefg', '2-9 c: ccccccccc']
 lines = (x.strip() for x in open('Day 2/input.txt'))
 
 reg_ex = re.compile(r"(\d+)-(\d+) (\w): (\w+)")
