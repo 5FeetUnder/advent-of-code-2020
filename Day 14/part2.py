@@ -28,6 +28,6 @@ for command in commands:
     if command[0] == 'mask':
         mem.set_mask(command[1])
     else:
-        address = int(re.search(r"\[([\d]+)\]",command[0]).group(1))
-        mem.write_mem(address,int(command[1]))
+        address = re.search(r"\[([\d]+)\]",command[0]).group(1)
+        mem.write_mem(int(address),int(command[1]))
 print(mem.get_sum())
