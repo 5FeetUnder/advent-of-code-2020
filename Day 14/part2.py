@@ -1,3 +1,4 @@
+import re
 commands = ([x.strip() for x in y.split('=')] for y in open('Day 14/input.txt'))
 
 class MemArray:
@@ -20,15 +21,13 @@ class MemArray:
             addresses = list(dict.fromkeys(addresses))
         self.cells.update({x:value for x in addresses})
     def get_sum(self):
-        res = 0
-        for _, value in self.cells.items():
-            res += value
-        return res
+        return sum(self.cells.values())
     
 mem = MemArray()
 for command in commands:
     if command[0] == 'mask':
         mem.set_mask(command[1])
     else:
-        mem.write_mem(int(command[0][command[0].find('[')+1:command[0].find(']')]),int(command[1]))
+        address = int(re.search(r"\[([\d]+)\]",command[0]).group(1))
+        mem.write_mem(address,int(command[1]))
 print(mem.get_sum())
