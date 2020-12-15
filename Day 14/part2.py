@@ -25,8 +25,7 @@ class MemArray:
     
 mem = MemArray()
 for command,value in commands:
-    if command == 'mask':
-        mem.set_mask(value)
+    if command == 'mask': mem.set_mask(value)
     else:
         address = re.search(r"\[([\d]+)\]",command).group(1)
         mem.write_mem(int(address),int(value))
