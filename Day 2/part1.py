@@ -1,6 +1,6 @@
 import re
 
-lines = (x.strip() for x in open('Day 2/input.txt'))
+lines = (x.strip() for x in open('input.txt'))
 
 reg_ex = re.compile(r"(\d+)-(\d+) (\w): (\w+)")
 

@@ -1,6 +1,6 @@
 import re
 
-commands = ([x.strip() for x in y.split('=')] for y in open('Day 14/input.txt'))
+commands = ([x.strip() for x in y.split('=')] for y in open('input.txt'))
 
 class MemArray:
     def __init__(self):
