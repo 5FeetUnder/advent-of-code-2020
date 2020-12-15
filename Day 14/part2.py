@@ -24,10 +24,10 @@ class MemArray:
         return sum(self.cells.values())
     
 mem = MemArray()
-for command in commands:
-    if command[0] == 'mask':
-        mem.set_mask(command[1])
+for command,value in commands:
+    if command == 'mask':
+        mem.set_mask(value)
     else:
-        address = re.search(r"\[([\d]+)\]",command[0]).group(1)
-        mem.write_mem(int(address),int(command[1]))
+        address = re.search(r"\[([\d]+)\]",command).group(1)
+        mem.write_mem(int(address),int(value))
 print(mem.get_sum())
