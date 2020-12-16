@@ -4,9 +4,6 @@ import math
 def find_match(a_list: list, b_list: list):
     if len(a_list) == 0:
         return [x for x in b_list]
-    elif len(b_list) == 0:
-        print('something\'s wrong')
-        return [x for x in a_list]
     else:
         r_list = []
         for a in a_list:
