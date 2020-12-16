@@ -1,4 +1,5 @@
 import re
+import math
 
 def find_match(a_list: list, b_list: list):
     if len(a_list) == 0:
@@ -40,6 +41,4 @@ while pos_len != 20:
                     positions[key].remove(rs[0])
     pos_len = sum([len(x) for x in positions.values()])
 my = [int(x) for x in lines[split+1].split(',')]
-idx = [x for x,v in positions.items() if 'departure' in v[0]]
-print(idx)
-print({i:x for i,x in enumerate(my)})
+print(math.prod([x for i,x in enumerate(my) if 'departure' in positions[i][0]]))
