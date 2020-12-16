@@ -14,7 +14,7 @@ def find_match(a_list: list, b_list: list):
                 r_list.append(a)
         return [x for x in r_list]
 
-lines = [x.strip() for x in open('C:/Users/petsc/Documents/GitHub/advent-of-code-2020/Day 16/input.txt').readlines()]
+lines = [x.strip() for x in open('input.txt').readlines()]
 split = lines.index('your ticket:')
 rules_re = re.compile(r'(.+): (\d+)\D+(\d+)\D+(\d+)\D+(\d+)')
 rules = {x[0]:[(int(x[1]),int(x[2])),(int(x[3]),int(x[4]))] for x in (rules_re.match(x).groups() for x in lines[:split-1])}
