@@ -14,8 +14,8 @@ def get_neighbours(pos_z, pos_y, pos_x, cubes):
     for z in (0,1) if pos_z == 0 else (-1,0) if  pos_z == cubes.shape[0] - 1 else (-1,0,1):
         for y in (0,1) if pos_y == 0 else (-1,0) if  pos_y == cubes.shape[1] - 1 else (-1,0,1):
             for x in (0,1) if pos_x == 0 else (-1,0) if  pos_x == cubes.shape[2] - 1 else (-1,0,1):
-                if not all([True if a == 0 else False for a in (x,y,z)]):
-                    if cubes[pos_z + z][pos_y + y][pos_x + x] == '#':
+                if not x == y == z == 0:
+                    if cubes[pos_z + z, pos_y + y, pos_x + x] == '#':
                         neighbours += 1
     return neighbours
 
