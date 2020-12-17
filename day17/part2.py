@@ -21,13 +21,6 @@ def get_neighbours(pos_w, pos_z, pos_y, pos_x, cubes):
                             neighbours += 1
     return neighbours
 
-def expand_cubes(a):
-    a = np.insert(a, (0, len(a)), '.', axis=0)
-    a = np.insert(a, (0, len(a[0])), '.', axis=1)
-    a = np.insert(a, (0, len(a[0][0])), '.', axis=2)
-    a = np.insert(a, (0, len(a[0][0][0])), '.', axis=3)
-    return a
-
 def shrink_cubes(c):
     n = 0
     for i,_ in enumerate(c.shape):
@@ -47,7 +40,7 @@ def shrink_cubes(c):
 cubes = np.array([[[[a for a in b.strip()] for b in open('input.txt')]]])
 
 for _ in range(6):
-    cubes = expand_cubes(cubes)
+    cubes = np.pad(cubes, 1, 'constant', constant_values = '.')
     next_cubes = np.copy(cubes)
     for wi,w in enumerate(cubes):
         for zi,z in enumerate(w):
