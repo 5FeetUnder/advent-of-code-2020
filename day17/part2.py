@@ -44,7 +44,7 @@ def shrink_cubes(c):
     else:
         return shrink_cubes(c)
 
-cubes = np.array([[[[a for a in b.strip()] for b in open('Day 17/input.txt')]]])
+cubes = np.array([[[[a for a in b.strip()] for b in open('input.txt')]]])
 
 for _ in range(6):
     cubes = expand_cubes(cubes)
