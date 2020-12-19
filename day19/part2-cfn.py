@@ -4,9 +4,9 @@ import re
 var_re = re.compile(r'(\d+)')
 ter_re = re.compile(r'.*([ab]).*')
 
-lines = (x.strip() for x in open('part2.txt'))
+lines = [x.strip() for x in open('part2.txt')]
 rules = {x[0:x.index(':')]: x[x.index(':') + 2:] for x in lines if len(x) > 1 and ':' in x}
-msgs = [x.strip() for x in open('part2.txt') if len(x) > 1 and ':' not in x]
+msgs = (x.strip() for x in lines if len(x) > 1 and ':' not in x)
 
 rule_vars = set()
 rule_prods = set()
