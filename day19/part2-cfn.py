@@ -20,7 +20,6 @@ for rule in rules:
         else:
             rule_prods.add(Production(Variable(rule), [Variable(x) for x in var_re.findall(sub)]))
 
-
 ter_a = Terminal('a')
 ter_b = Terminal('b')
 
